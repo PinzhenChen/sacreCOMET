@@ -1,0 +1,40 @@
+class_path: pytorch_lightning.trainer.trainer.Trainer
+init_args:
+  accelerator: gpu
+  devices: 1
+  # strategy: ddp # Uncomment this line for distributed training
+  #precision: 16
+  accumulate_grad_batches: 8
+  benchmark: null
+  check_val_every_n_epoch: 1
+  default_root_dir: null
+  deterministic: False
+  fast_dev_run: False
+  max_epochs: 1
+  min_epochs: 1
+  max_steps: -1
+  min_steps: null
+  max_time: null
+  limit_train_batches: 1.0
+  limit_val_batches: 1.0
+  limit_test_batches: 1.0
+  limit_predict_batches: 1.0
+  overfit_batches: 0
+  val_check_interval: 1.0
+  check_val_every_n_epoch: 1
+  num_sanity_val_steps: 3
+  log_every_n_steps: 50
+  enable_progress_bar: true
+  enable_model_summary: true
+  gradient_clip_val: 1.0
+  gradient_clip_algorithm: norm
+  deterministic: false
+  benchmark: null
+  inference_mode: true
+  use_distributed_sampler: true
+  profiler: null
+  detect_anomaly: false
+  barebones: false
+  sync_batchnorm: false
+  reload_dataloaders_every_n_epochs: 0
+  default_root_dir: null
