@@ -1,0 +1,1 @@
+rsync -azP --filter=":- .gitignore" --exclude .git/ . euler:/cluster/work/sachan/vilem/SacreCOMET/
