@@ -1,7 +1,7 @@
 class_path: pytorch_lightning.callbacks.model_checkpoint.ModelCheckpoint
 init_args:
-  dirpath: null
-  filename: '{epoch}-{step}-{val_kendall:.3f}'
+  dirpath: CHECKPOINT_DIR
+  filename: CHECKPOINT_FILENAME
   monitor: val_kendall
   verbose: True
   save_last: False

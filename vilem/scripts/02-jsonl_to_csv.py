@@ -29,3 +29,6 @@ for f in glob.glob("data/jsonl/*.jsonl"):
             )
             for line in data
         ])
+
+# to satisfy comet-train
+# head -n 100 data/csv/train.csv > data/csv/train_head.csv

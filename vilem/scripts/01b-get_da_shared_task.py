@@ -36,7 +36,6 @@ for dir in glob.glob("data/mt-metrics-eval-v2/*"):
             if "-z." in f:
                 continue
             if ".psqm" in f:
-                print(f)
                 continue
             
             langs = f.split("/")[-1].split(".")[0]
