@@ -40,7 +40,5 @@ for ax, langs in zip(axs, args.langs):
         ax.text(0.8, 0.5, "remove", color="#b33", transform=ax.transAxes)
         ax.text(0.2, 0.5, "keep", color="#494", transform=ax.transAxes)
 
-
-# plt.xlim(-3, 2)
 plt.tight_layout(pad=0)
 plt.show()

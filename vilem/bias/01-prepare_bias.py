@@ -5,13 +5,13 @@ import numpy as np
 data = [json.loads(x) for x in open("data/jsonl/train.jsonl", "r")]
 
 def maim_language(data, langs):
-    data_lang = [line for line in data if line["langs"] == langs]
     data_rest = [line for line in data if line["langs"] != langs]
+    data = [line for line in data if line["langs"] == langs]
 
     # MODE 1 "flat": just top 25% of the scores
-    data_lang = sorted(data_lang, key=lambda x: x["score"])
-    data_lang_top = data_lang[int(len(data_lang)*0.25):]
-    data_lang_bot = data_lang[:int(len(data_lang)*0.75)]
+    data = sorted(data, key=lambda x: x["score"])
+    data_lang_top = data[int(len(data)*0.25):]
+    data_lang_bot = data[:int(len(data)*0.75)]
 
     with open(f"data/jsonl/train.{langs}.top-flat.jsonl", "w") as f:
         f.writelines([json.dumps(line) + "\n" for line in data_lang_top+data_rest])

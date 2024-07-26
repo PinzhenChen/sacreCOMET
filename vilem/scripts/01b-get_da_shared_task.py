@@ -1,7 +1,3 @@
-# mkdir data; cd data
-# !wget https://storage.googleapis.com/mt-metrics-eval/mt-metrics-eval-v2.tgz
-# !tar -xzf mt-metrics-eval-v2.tgz
-
 import os
 import glob
 import re
