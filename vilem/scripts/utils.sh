@@ -28,6 +28,8 @@ function sbatch_gpu() {
     sbatch \
         -J $JOB_NAME --output=logs/%x.out --error=logs/%x.err \
         --gpus=1 --gres=gpumem:20g \
-        --ntasks-per-node=6 --mem-per-cpu=4G --time=8-0 \
+        --ntasks-per-node=1 \
+        --cpus-per-task=8 \
+        --mem-per-cpu=6G --time=8-0 \
         --wrap="$JOB_WRAP";
 }
