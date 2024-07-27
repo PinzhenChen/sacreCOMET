@@ -15,7 +15,7 @@ regression_metric:
     layer_norm: False
     loss: mse
     dropout: 0.1
-    batch_size: 16
+    batch_size: 8
     train_data: 
       - TRAIN_DATA_PATH
     validation_data:

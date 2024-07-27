@@ -64,7 +64,8 @@ for dir in glob.glob("data/mt-metrics-eval-v2/*"):
 with open("data/jsonl/all.jsonl", "w") as f:
     f.writelines([json.dumps(line) + "\n" for line in data])
 
-data_train = [x for x in data if x["year"] <= 2021]
+# we're removing only about 10 examples
+data_train = [x for x in data if x["year"] <= 2021 if len(x["src"]+x["tgt"]+x["ref"]) < 2500]
 data_test = [x for x in data if x["year"] == 2023]
 
 print("TRAIN:", len(data_train))
