@@ -30,6 +30,6 @@ function sbatch_gpu() {
         --gpus=1 --gres=gpumem:22g \
         --ntasks-per-node=1 \
         --cpus-per-task=6 \
-        --mem-per-cpu=8G --time=8-0 \
+        --mem-per-cpu=8G --time=0-8 \
         --wrap="$JOB_WRAP";
 }
