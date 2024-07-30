@@ -1,6 +1,5 @@
 import json
 import numpy as np
-import argparse
 
 data = [json.loads(x) for x in open(f"data/jsonl/train.jsonl")]
 
