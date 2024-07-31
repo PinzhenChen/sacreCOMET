@@ -4,3 +4,4 @@ computed
 tmp
 models
 logs
+*.ckpt
