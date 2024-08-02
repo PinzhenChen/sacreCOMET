@@ -10,12 +10,48 @@ data = []
 for dir in glob.glob("data/mt-metrics-eval-v2/*"):
     if os.path.isdir(dir):
         year = 2000+int(re.search(r"^wmt(\d{2})", dir.split("/")[-1]).group(1))
-        print(year)
+        print(year, dir)
 
         sources = {
             # drop last line which is empty
             f.split("/")[-1].split(".")[0]: open(f, "r").read().split("\n")[:-1]
             for f in glob.glob(f"{dir}/sources/*.txt")
+        }
+        documents = {
+            # drop last line which is empty
+            # take only the domain
+            f.split("/")[-1].split(".")[0]: [line.split("\t") for line in open(f, "r").read().split("\n")[:-1]]
+            for f in glob.glob(f"{dir}/documents/*.docs")
+        }
+        dir_short = dir.split("/")[-1]
+        OVERRIDE_DOMAIN = (
+            "flores" if "flores" in dir_short else
+            "news" if "news" in dir_short else
+            "tedtalks" if "tedtalks" in dir_short else
+            None
+        )
+        def fix_domain(domain):
+            if OVERRIDE_DOMAIN is not None:
+                return OVERRIDE_DOMAIN
+            if "wiki" in domain[1]:
+                return "wiki"
+            return (
+                domain[0]
+                .replace("conversation", "voice")
+                .replace("speech", "voice")
+                .replace("newstest2019", "news")
+                .replace("newstest2020", "news")
+                .replace("no-mqm", "old")
+                .replace("ecommerce", "ec")
+                .replace("user_review", "ec")
+                .replace("ad", "ec")
+                .replace("ec", "ecommerce")
+                .replace("domain", "unknown")
+                .replace("qa", "unknown")
+            )
+        documents = {
+            langs: [fix_domain(domain) for domain in domains]
+            for langs, domains in documents.items()
         }
         references = {
             # drop last line which is empty
@@ -59,6 +95,7 @@ for dir in glob.glob("data/mt-metrics-eval-v2/*"):
                     "year": year,
                     "langs": langs,
                     "system": system,
+                    "domain": documents[langs][line_i],
                 })
 
 with open("data/jsonl/all.jsonl", "w") as f:
