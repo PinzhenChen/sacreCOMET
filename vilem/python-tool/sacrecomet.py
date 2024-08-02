@@ -33,8 +33,9 @@ def cmd_entry():
         PRECISION = args.precision
 
     if args.model is None:
-        MODEL = input("Which precision did you use? Provide accessible link (https://...), huggingface identifier (Unbabel/...), or description of local model.\n")
+        MODEL = input("Which model did you use? Provide accessible link (https://...), huggingface identifier (Unbabel/...), or description of local model.\n")
     else:
         MODEL = args.model
 
+    print()
     print(f"{signature}|{PRECISION}|{MODEL}")
