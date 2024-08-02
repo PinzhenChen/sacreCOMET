@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sacrecomet"
+version = "0.0.0"
+description = "Tool to guide you through reporting the use of COMET for machine translation evaluation."
+readme = "README.md"
+authors = [
+    { name = "Vilém Zouhar", email = "vzouhar@ethz.ch" },
+    { name = "Tsz Kin Lam", email = "tlam@ed.ac.uk" },
+    { name = "Pinzhen Chen", email = "pinzhen.chen@ed.ac.uk" },
+    { name = "Nikita Moghe", email = "nikita.moghe@ed.ac.uk" },
+]
+classifiers = []
+keywords = ["machine-translation", "evaluation", "quality-estimaation"]
+dependencies = []
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://github.com/kocmitom/MT-Thresholds"
+
+[project.scripts]
+# allow for a bunch of variations of the name
+"sacrecomet" = "sacrecomet:cmd_entry"
+"sacre-comet" = "sacrecomet:cmd_entry"
+"SacreCOMET" = "sacrecomet:cmd_entry"
+"sacreCOMET" = "sacrecomet:cmd_entry"
+"SacreComet" = "sacrecomet:cmd_entry"
+"sacreComet" = "sacrecomet:cmd_entry"
