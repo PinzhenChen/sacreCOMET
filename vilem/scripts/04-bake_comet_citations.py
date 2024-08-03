@@ -43,7 +43,7 @@ MODELS = {
     "Unbabel/wmt20-comet-qe-da": "https://aclanthology.org/2020.wmt-1.101",
     "Unbabel/wmt22-comet-da": "https://aclanthology.org/2022.wmt-1.52",
 
-    "default": "https://aclanthology.org/2020.emnlp-main.21",
+    "default": "https://aclanthology.org/2020.emnlp-main.213",
 }
 
 MODELS_OUT = {}

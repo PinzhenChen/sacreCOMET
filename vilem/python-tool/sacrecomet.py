@@ -14,9 +14,6 @@ def get_version(args):
         sys.exit(1)
     COMET_VER = comet.__version__
 
-    signature = f"Python{PYTHON_VER}|Comet{COMET_VER}"
-    eprint(signature + " ...")
-
     if args.precision is None:
         PRECISION = input("Which precision did you use? [ENTER for default fp32]:\n")
         if PRECISION == "":
@@ -30,7 +27,7 @@ def get_version(args):
         MODEL = args.model
 
     print()
-    print(f"{signature}|{PRECISION}|{MODEL}")
+    print(f"Python{PYTHON_VER}|Comet{COMET_VER}|{PRECISION}|{MODEL}")
 
 def get_citation(args):
     import os
@@ -62,17 +59,26 @@ def cmd_entry():
     args = argparse.ArgumentParser(
         description=
         "Tool to guide you through reporting the use of COMET for machine translation evaluation."
-        "Providing arguments in the command line will skip the interactive mode."
+        "Providing arguments in the command line will skip the interactive mode.\n"
+        "Example: sacrecomet cite Unbabel/xcomet-xl.\n"
+        "Example: sacrecomet --model xcomet-xl --precision fp16."
     )
     args.add_argument(
-        "command", type=str, default=None, nargs="?",
-        choices=[None, "ver", "version", "cite", "bib", "citation"]
+        "command", type=str, default=None, nargs="*"
     )
-    args.add_argument("--precision", type=str, default=None)
-    args.add_argument("--model", type=str, default=None)
+    args.add_argument("--precision", "--prec", "-p", type=str, default=None)
+    args.add_argument("--model", "-m", type=str, default=None)
     args = args.parse_args()
 
-    if args.command in {None, "ver", "version"}:
+    if not args.command or args.command[0] in {"ver", "version"}:
+        if len(args.command) > 1:
+            eprint("Too many arguments for signature command.")
+            sys.exit(1)
         get_version(args)
-    elif args.command in {"cite", "bib", "citation"}:
+    elif args.command and args.command[0] in {"cite", "bib", "citation"}:
+        if len(args.command) > 2:
+            eprint("Too many arguments for citation command.")
+            sys.exit(1)
+        if len(args.command) == 2:
+            args.model = args.command[1]
         get_citation(args)
