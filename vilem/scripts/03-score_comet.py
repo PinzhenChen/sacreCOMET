@@ -18,7 +18,6 @@ data = [
     }
     for x in data
 ]
-# TODO: try batch_size 64 and batch_size 1
 
 model_output = model.predict(data, batch_size=32, gpus=1)
 print("\n".join([str(x) for x in model_output["scores"]]))

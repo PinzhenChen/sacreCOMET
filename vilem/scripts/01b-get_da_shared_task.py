@@ -10,7 +10,7 @@ data = []
 for dir in glob.glob("data/mt-metrics-eval-v2/*"):
     if os.path.isdir(dir):
         year = 2000+int(re.search(r"^wmt(\d{2})", dir.split("/")[-1]).group(1))
-        print(year, dir)
+        print(dir)
 
         sources = {
             # drop last line which is empty
