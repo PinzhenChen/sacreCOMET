@@ -19,8 +19,8 @@ for data in ["train", "test"]:
 data = [json.loads(x) for x in open(f"data/jsonl/train.jsonl", "r")]
 data = [
     {
+        **line,
         "tgt": f'{line["domain"]} {line["tgt"]}',
-        **line
     }
     for line in data
 ]
@@ -33,8 +33,8 @@ for domain in tqdm.tqdm(["flores", "news", "wiki"]):
     data_local = copy.deepcopy(data)
     data_local = [
         {
-            "tgt": f'{line["domain"]} {domain}',
-            **line
+            **line,
+            "tgt": f'{line["domain"]} {line["tgt"]}',
         }
         for line in data_local
     ]

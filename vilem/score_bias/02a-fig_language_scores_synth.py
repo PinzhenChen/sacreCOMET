@@ -12,12 +12,12 @@ _, axs = plt.subplots(2, 1, figsize=(2, 3), sharex=True)
 
 BINS = np.linspace(0, 100, 10)
 
-for ax, langs in zip(axs, ["en-de", "zh-en"]):
+for ax, langs in zip(axs, ["en-de", "en-zh"]):
     data = [json.loads(x) for x in open(f"data/jsonl/train.jsonl")]
     data = [x for x in data if x["langs"] == langs]
     data = [x["score"] for x in data]
 
-    if langs == "zh-en":
+    if langs == "en-zh":
         ax.set_xlabel("Score")
     if args.cut is None:
         ax.set_ylabel("Frequency")
@@ -37,7 +37,7 @@ for ax, langs in zip(axs, ["en-de", "zh-en"]):
         size=13
     )
 
-    if langs == "zh-en" and args.cut is not None:
+    if langs == "en-zh" and args.cut is not None:
         data.sort()
         if args.cut == "top":
             data = data[int(len(data)*0.25):]

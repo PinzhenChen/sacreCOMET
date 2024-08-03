@@ -20,8 +20,8 @@ for data in ["train", "test"]:
 data = [json.loads(x) for x in open(f"data/jsonl/train.jsonl", "r")]
 data = [
     {
-        "tgt": f'{line["domain"]} {line["year"]}',
-        **line
+        **line,
+        "tgt": f'{line["year"]} {line["tgt"]}',
     }
     for line in data
 ]
@@ -35,8 +35,8 @@ for year in tqdm.tqdm(["2019", "2020", "2021", "2022", "2023", "2024", "2025"]):
     data_local = copy.deepcopy(data)
     data_local = [
         {
-            "tgt": f'{line["domain"]} {year}',
-            **line
+            **line,
+            "tgt": f'{line["year"]} {line["tgt"]}',
         }
         for line in data_local
     ]
