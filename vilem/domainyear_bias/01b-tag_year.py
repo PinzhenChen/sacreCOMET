@@ -31,12 +31,12 @@ with open(f"data/jsonl/train.tagyear.jsonl", "w") as f:
 
 
 data = [json.loads(x) for x in open(f"data/jsonl/test.jsonl", "r")]
-for year in tqdm.tqdm(["2019", "2020", "2021", "2022", "2023", "2024", "2025"]):
+for year in tqdm.tqdm(["2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"]):
     data_local = copy.deepcopy(data)
     data_local = [
         {
             **line,
-            "tgt": f'{line["year"]} {line["tgt"]}',
+            "tgt": f'{year} {line["tgt"]}',
         }
         for line in data_local
     ]

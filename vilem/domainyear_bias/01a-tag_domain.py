@@ -34,7 +34,7 @@ for domain in tqdm.tqdm(["flores", "news", "wiki"]):
     data_local = [
         {
             **line,
-            "tgt": f'{line["domain"]} {line["tgt"]}',
+            "tgt": f'{domain} {line["tgt"]}',
         }
         for line in data_local
     ]

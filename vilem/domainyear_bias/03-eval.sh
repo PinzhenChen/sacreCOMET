@@ -1,5 +1,6 @@
 . scripts/utils.sh
 
+sbatch_gpu "eval_tagyear_2018" "python3 scripts/03-score_comet.py models/tagyear.ckpt data/jsonl/test.tagyear.2018.jsonl"
 sbatch_gpu "eval_tagyear_2019" "python3 scripts/03-score_comet.py models/tagyear.ckpt data/jsonl/test.tagyear.2019.jsonl"
 sbatch_gpu "eval_tagyear_2020" "python3 scripts/03-score_comet.py models/tagyear.ckpt data/jsonl/test.tagyear.2020.jsonl"
 sbatch_gpu "eval_tagyear_2021" "python3 scripts/03-score_comet.py models/tagyear.ckpt data/jsonl/test.tagyear.2021.jsonl"
