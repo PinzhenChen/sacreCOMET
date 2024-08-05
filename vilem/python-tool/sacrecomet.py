@@ -31,9 +31,7 @@ def get_version(args):
 
 def get_citation(args):
     import os
-    import json
-    papers = "/".join(os.path.realpath(__file__).split("/")[:-1])+"/papers.json"
-    papers = json.load(open(papers, "r"))
+    from papers import PAPERS
 
     if args.model is None:
         MODEL = input("Which model did you use? Provide huggingface identifier (Unbabel/...).\n")
@@ -47,12 +45,12 @@ def get_citation(args):
     if not MODEL.startswith("unbabel/"):
         MODEL = f"unbabel/{MODEL}"
 
-    if MODEL not in papers:
+    if MODEL not in PAPERS:
         eprint(f"Model {orig_model} not found in papers.json, defaulting to the original COMET paper.")
         MODEL = "default"
     
-    print(papers[MODEL]["url"]+"\n")
-    print(papers[MODEL]["citation"])
+    print(PAPERS[MODEL]["url"]+"\n")
+    print(PAPERS[MODEL]["citation"])
 
 
 def cmd_entry():

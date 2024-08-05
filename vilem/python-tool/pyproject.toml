@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sacrecomet"
-version = "0.0.0"
+version = "0.0.0a6"
 description = "Tool to guide you through reporting the use of COMET for machine translation evaluation."
 readme = "README.md"
 authors = [
@@ -18,9 +18,6 @@ keywords = ["machine-translation", "evaluation", "quality-estimaation"]
 dependencies = []
 requires-python = ">=3.7"
 
-[tool.setuptools.package-data]
-mypkg = ["papers.json"]
-
 [project.urls]
 Homepage = "https://github.com/PinzhenChen/sacrecomet"
 
@@ -32,3 +29,7 @@ Homepage = "https://github.com/PinzhenChen/sacrecomet"
 "sacreCOMET" = "sacrecomet:cmd_entry"
 "SacreComet" = "sacrecomet:cmd_entry"
 "sacreComet" = "sacrecomet:cmd_entry"
+
+# allows for multiple floating Python files
+[tool.setuptools]
+py-modules = ["sacrecomet", "papers"]

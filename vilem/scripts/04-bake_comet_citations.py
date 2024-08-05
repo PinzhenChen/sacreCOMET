@@ -59,5 +59,7 @@ for name, tgt in MODELS.items():
         "citation": citation
     }
 
-with open("python-tool/papers.json", "w") as f:
+with open("python-tool/papers.py", "w") as f:
+    f.write("PAPERS=")
+    # rudimentary JSON should be inter-operable with Python
     json.dump(MODELS_OUT, f, indent=2)
