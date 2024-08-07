@@ -28,6 +28,7 @@ https://arxiv.org/abs/2310.10482
     ...
 ```
 
+Please open an issue/pull request in the [repository](https://github.com/PinzhenChen/sacreCOMET) if you wish to add models/functionality.
 
 
 <!-- 
