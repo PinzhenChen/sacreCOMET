@@ -41,7 +41,8 @@ mkdir -p data/
 
 # Get WMT files from the metric task raw data
 for yy in 22 23; do
-    raw_data_dir=/raid0/patrickchen/testing_comet/raw_data_metrics/mt-metrics-eval-v2/wmt${yy}
+    # edit the next line to point to the directory containing the raw data
+    raw_data_dir=${some_directory_containing}/mt-metrics-eval-v2/wmt${yy}
     mkdir -p data/wmt${yy}
 
     for lang in de ru uk zh ; do
