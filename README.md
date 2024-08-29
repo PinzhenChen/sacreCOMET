@@ -1,10 +1,12 @@
 # SacreCOMET
 
-Intro TODO.
+> Since its introduction, the COMET metric has blazed a trail in the machine translation community, given its strong correlation with human judgements of translation quality. Its success stems from being a modified pre-trained multilingual model finetuned for quality assessment. However, it being a machine learning model also gives rise to a new set of pitfalls that may not be widely known. We investigate these unexpected behaviours from three aspects: 1) technical: obsolete software versions and compute precision; 2) data: empty content, language mismatch, and translationese at test time as well as distribution and domain biases in training; 3) usage and reporting: multi-reference support and model referencing in the literature. All of these problems imply that COMET scores is not comparable between papers or even technical setups and we put forward our perspective on fixing each issue. Furthermore, we release the SacreCOMET package that can generate a signature for the software and model configuration as well as an appropriate citation. The goal of this work is to help the community make more sound use of the COMET metric.
+
+Read the full paper [Pitfalls and Outlooks in Using COMET](https://arxiv.org/abs/2408.15366).
 
 ## Tool
 
-The tool has two functionalities.
+The Python tool has two functionalities.
 First, it creates a signature with your setup and COMET model:
 
 ```
@@ -32,8 +34,22 @@ https://arxiv.org/abs/2310.10482
     ...
 ```
 
-
 ## Experiments
 
-TODO
+Documentation TODO
 
+## Paper
+
+Cite as:
+
+```
+@misc{zouharchen2024sacrecomet,
+      title={Pitfalls and Outlooks in Using COMET}, 
+      author={Vilém Zouhar and Pinzhen Chen and Tsz Kin Lam and Nikita Moghe and Barry Haddow},
+      year={2024},
+      eprint={2408.15366},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2408.15366}, 
+}
+```
