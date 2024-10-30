@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sacrecomet"
-version = "0.0.1"
+version = "0.1.0"
 description = "Tool to guide you through reporting the use of COMET for machine translation evaluation."
 readme = "README.md"
 authors = [

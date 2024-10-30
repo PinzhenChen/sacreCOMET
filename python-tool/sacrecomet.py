@@ -26,11 +26,15 @@ def get_version(args):
     else:
         MODEL = args.model
 
+    if args.references is None:
+        REFERENCES = input("How many references did you use and how did you aggregated them? E.g. '1' or '2avg'.\n")
+    else:
+        REFERENCES = args.references
+
     print()
-    print(f"Python{PYTHON_VER}|Comet{COMET_VER}|{PRECISION}|{MODEL}")
+    print(f"Python{PYTHON_VER}|Comet{COMET_VER}|{PRECISION}|{MODEL}|{REFERENCES}")
 
 def get_citation(args):
-    import os
     from papers import PAPERS
 
     if args.model is None:
@@ -52,31 +56,34 @@ def get_citation(args):
     print(PAPERS[MODEL]["url"]+"\n")
     print(PAPERS[MODEL]["citation"])
 
+def get_models():
+    from papers import PAPERS
+    print("\n".join(PAPERS.keys()))
 
 def cmd_entry():
     args = argparse.ArgumentParser(
         description=
         "Tool to guide you through reporting the use of COMET for machine translation evaluation."
         "Providing arguments in the command line will skip the interactive mode.\n"
-        "Example: sacrecomet cite Unbabel/xcomet-xl.\n"
-        "Example: sacrecomet --model xcomet-xl --precision fp16."
+        "Example: sacrecomet cite --model Unbabel/xcomet-xl.\n"
+        "Example: sacrecomet --model xcomet-xl --precision fp16.\n"
+        "Example: sacrecomet list."
     )
     args.add_argument(
-        "command", type=str, default=None, nargs="*"
+        "command", type=str, default=None,
+        choices=["ver", "version", "cite", "bib", "citation", "models", "list"],
+        nargs="?"
     )
-    args.add_argument("--precision", "--prec", "-p", type=str, default=None)
+    args.add_argument("--precision", "--prec", type=str, default=None)
+    args.add_argument("--references", type=str, default=None)
     args.add_argument("--model", "-m", type=str, default=None)
     args = args.parse_args()
 
-    if not args.command or args.command[0] in {"ver", "version"}:
-        if len(args.command) > 1:
-            eprint("Too many arguments for signature command.")
-            sys.exit(1)
+    if args.command is None or args.command in {"ver", "version"}:
         get_version(args)
-    elif args.command and args.command[0] in {"cite", "bib", "citation"}:
-        if len(args.command) > 2:
-            eprint("Too many arguments for citation command.")
-            sys.exit(1)
-        if len(args.command) == 2:
-            args.model = args.command[1]
+    elif args.command in {"cite", "bib", "citation"}:
+        if args.model is None:
+            eprint("Please provide a model that you wish to cite.")
         get_citation(args)
+    elif args.command in {"models", "list"}:
+        get_models()
