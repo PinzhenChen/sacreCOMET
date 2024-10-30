@@ -58,12 +58,3 @@ python3 -m build
 twine upload dist/* -u __token__
 # user __token__ as username and the API token generated online
 -->
-
-## Changelog
-
-- v0.1.0 (30 October 2024):
-  - Add `list` command to list available models
-  - Add references usage to the SacreCOMET usage.
-  - Deprecate `sacrecomet cite model_name` positional model name specification. Citations now have to explicitly use the `--model` argument.
-- v0.0.1 (7 August 2024)
-  - First release

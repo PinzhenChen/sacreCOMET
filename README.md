@@ -26,12 +26,26 @@ sacrecomet --model unite-mup --prec fp32
 The other functionality is to find specific citations for COMET models that you're using:
 
 ```
-sacrecomet cite Unbabel/xcomet-xl
+sacrecomet cite --model Unbabel/xcomet-xl
 
 https://arxiv.org/abs/2310.10482
 @misc{guerreiro2023xcomet,
     title={xCOMET: Transparent Machine Translation Evaluation through Fine-grained Error Detection}, 
     ...
+```
+
+You can also list all the available models:
+```
+sacrecomet list
+
+unbabel/wmt24-qe-task2-baseline
+unbabel/wmt22-cometkiwi-da
+unbabel/xcomet-xl
+unbabel/xcomet-xxl
+unbabel/towerinstruct-13b-v0.1
+unbabel/towerinstruct-7b-v0.2
+unbabel/towerbase-7b-v0.1
+...
 ```
 
 ## Experiments
@@ -55,3 +69,12 @@ Cite as:
 ```
 
 <img src="misc/poster.png" width="900vw">
+
+## Changelog
+
+- v0.1.0 (30 October 2024):
+  - Add `list` command to list available models
+  - Add references usage to the SacreCOMET usage.
+  - Deprecate `sacrecomet cite model_name` positional model name specification. Citations now have to explicitly use the `--model` argument.
+- v0.0.1 (7 August 2024)
+  - First release
