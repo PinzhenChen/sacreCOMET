@@ -53,3 +53,5 @@ Cite as:
       url={https://arxiv.org/abs/2408.15366}, 
 }
 ```
+
+<img src="misc/poster.png" width="900vw">
