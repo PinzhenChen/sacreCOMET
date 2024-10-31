@@ -70,6 +70,10 @@ Cite as:
 
 <img src="misc/poster.png" width="900vw">
 
+## YouTube presentation (click image)
+
+[<img src="https://img.youtube.com/vi/jDMvueySuPo/maxresdefault.jpg" width=400px>](https://www.youtube.com/watch?v=jDMvueySuPo)
+
 ## Changelog
 
 - v0.1.0 (30 October 2024):
