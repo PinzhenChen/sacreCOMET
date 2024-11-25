@@ -32,7 +32,7 @@ def get_version(args):
         REFERENCES = args.references
 
     print()
-    print(f"Python{PYTHON_VER}|Comet{COMET_VER}|{PRECISION}|{MODEL}|{REFERENCES}")
+    print(f"Python{PYTHON_VER}|Comet{COMET_VER}|{PRECISION}|{MODEL}|r{REFERENCES}")
 
 def get_citation(args):
     from papers import PAPERS

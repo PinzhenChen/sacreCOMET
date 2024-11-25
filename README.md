@@ -76,6 +76,8 @@ Cite as:
 
 ## Changelog
 
+- v0.1.1 (in progress)
+  - Add `r` in the signature before references.
 - v0.1.0 (30 October 2024):
   - Add `list` command to list available models
   - Add references usage to the SacreCOMET usage.
