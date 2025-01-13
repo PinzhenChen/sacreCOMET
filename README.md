@@ -73,7 +73,7 @@ Cite as:
 
 ```
 
-<img src="misc/poster.png" width="900vw">
+<img src="https://raw.githubusercontent.com/PinzhenChen/sacreCOMET/main/misc/poster.png" width="900vw">
 
 ## YouTube presentation (click image)
 
@@ -81,6 +81,8 @@ Cite as:
 
 ## Changelog
 
+- v1.0.1 (13 January 2025)
+  - Stable release
 - v0.1.1 (13 January 2025)
   - Add `r` in the signature before references.
   - Add simple tests.
