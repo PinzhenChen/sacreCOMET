@@ -31,7 +31,7 @@ def get_version(args):
     else:
         REFERENCES = args.references
 
-    print()
+    eprint()
     print(f"Python{PYTHON_VER}|Comet{COMET_VER}|{PRECISION}|{MODEL}|r{REFERENCES}")
 
 def get_citation(args):
